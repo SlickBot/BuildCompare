@@ -37,7 +37,7 @@ class GradleController : Controller() {
                 doWork()
             } catch (e: Exception) {
                 // Notify user.
-                displayAlert("Error occurred while building querying!", e)
+                displayAlert("Error occurred while building!", e)
             }
         }
     }
@@ -116,7 +116,7 @@ class GradleController : Controller() {
                     }
                 }
         )
-        gradle.startProcess(projects, model.iterations.value.toInt())
+        gradle.startProcess(projects, model.iterations.value.toInt(), model.incrementalBuild.value)
     }
 
     fun saveSnapshot() {

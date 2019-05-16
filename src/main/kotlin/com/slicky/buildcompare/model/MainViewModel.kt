@@ -9,6 +9,8 @@ class MainViewData {
 
     val rootPathProperty = SimpleStringProperty("")
     val iterationsProperty = SimpleIntegerProperty(30)
+    val cleanBuildProperty = SimpleBooleanProperty(true)
+    val incrementalBuildProperty = SimpleBooleanProperty(false)
     val outputPathProperty = SimpleStringProperty("")
 
     val javaActiveProperty = SimpleBooleanProperty(true)
@@ -22,6 +24,8 @@ class MainViewModel(private val data: MainViewData) : ViewModel() {
 
     val rootPath = bind { data.rootPathProperty }
     val iterations = bind { data.iterationsProperty }
+    val cleanBuild = bind { data.cleanBuildProperty }
+    val incrementalBuild = bind { data.incrementalBuildProperty }
     val outputPath = bind { data.outputPathProperty }
 
     val javaActive = bind { data.javaActiveProperty }

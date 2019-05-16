@@ -36,7 +36,7 @@ class MainView : View("BuildCompare") {
         center = stackpane {
             graph = areachart(
                     x = CategoryAxis().apply { label = "Iteration" },
-                    y = NumberAxis(0.0, 40.0, .2).apply { label = "Build duration" }
+                    y = NumberAxis(0.0, 25.0, .2).apply { label = "Build duration" }
             ) {
                 addClass(Styles.graph)
                 createSymbols = false
@@ -56,8 +56,14 @@ class MainView : View("BuildCompare") {
                 field("Projects") {
                     radiobutton("Java", ctrl.model.javaActive)
                     radiobutton("Kotlin", ctrl.model.kotlinActive)
-                    radiobutton("Parcelize", ctrl.model.parcelizeActive)
+//                    radiobutton("Parcelize", ctrl.model.parcelizeActive)
 //                    radiobutton("Anko", ctrl.model.ankoActive)
+                }
+                field("Build type") {
+                    togglegroup {
+                        radiobutton("Clean", ctrl.model.cleanBuild)
+                        radiobutton("Incremental", ctrl.model.incrementalBuild)
+                    }
                 }
                 field {
                     hbox {
